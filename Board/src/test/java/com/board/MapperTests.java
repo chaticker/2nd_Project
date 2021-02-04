@@ -19,16 +19,16 @@ class MapperTests {
 	private BoardMapper boardMapper;
 
 	@Test
-	public void testMultipleInsert() {
-		for (int i = 2; i <= 50; i++) {
-			BoardDTO params = new BoardDTO();
-			params.setTitle(i + "¹ø °Ô½Ã±Û Á¦¸ñ");
-			params.setContent(i + "¹ø °Ô½Ã±Û ³»¿ë");
-			params.setWriter(i + "¹ø °Ô½Ã±Û ÀÛ¼ºÀÚ");
-			boardMapper.insertBoard(params);
-		}
-	}
+	public void testOfInsert() {
+		BoardDTO params = new BoardDTO();
+		params.setTitle("1ë²ˆ ê²Œì‹œê¸€ ì œëª©");
+		params.setContent("1ë²ˆ ê²Œì‹œê¸€ ë‚´ìš©");
+		params.setWriter("í…ŒìŠ¤í„°");
 
+		int result = boardMapper.insertBoard(params);
+		System.out.println("ê²°ê³¼ëŠ” " + result + "ì…ë‹ˆë‹¤.");
+	}
+	
 	@Test
 	public void testOfSelectDetail() {
 		BoardDTO board = boardMapper.selectBoardDetail((long) 1);
@@ -43,13 +43,13 @@ class MapperTests {
 			e.printStackTrace();
 		}
 	}
-
+	
 	@Test
 	public void testOfUpdate() {
 		BoardDTO params = new BoardDTO();
-		params.setTitle("1¹ø °Ô½Ã±Û Á¦¸ñÀ» ¼öÁ¤ÇÕ´Ï´Ù.");
-		params.setContent("1¹ø °Ô½Ã±Û ³»¿ëÀ» ¼öÁ¤ÇÕ´Ï´Ù.");
-		params.setWriter("È«±æµ¿");
+		params.setTitle("1ë²ˆ ê²Œì‹œê¸€ ì œëª©ì„ ìˆ˜ì •í•©ë‹ˆë‹¤.");
+		params.setContent("1ë²ˆ ê²Œì‹œê¸€ ë‚´ìš©ì„ ìˆ˜ì •í•©ë‹ˆë‹¤.");
+		params.setWriter("í™ê¸¸ë™");
 		params.setIdx((long) 1);
 
 		int result = boardMapper.updateBoard(params);
@@ -67,7 +67,7 @@ class MapperTests {
 			}
 		}
 	}
-
+	
 	@Test
 	public void testOfDelete() {
 		int result = boardMapper.deleteBoard((long) 1);
@@ -85,7 +85,18 @@ class MapperTests {
 			}
 		}
 	}
-
+	
+	@Test
+	public void testMultipleInsert() {
+		for (int i = 2; i <= 50; i++) {
+			BoardDTO params = new BoardDTO();
+			params.setTitle(i + "ë²ˆ ê²Œì‹œê¸€ ì œëª©");
+			params.setContent(i + "ë²ˆ ê²Œì‹œê¸€ ë‚´ìš©");
+			params.setWriter(i + "ë²ˆ ê²Œì‹œê¸€ ì‘ì„±ì");
+			boardMapper.insertBoard(params);
+		}
+	}
+	
 	@Test
 	public void testSelectList() {
 		int boardTotalCount = boardMapper.selectBoardTotalCount();

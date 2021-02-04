@@ -1,6 +1,5 @@
 package com.board.constant;
 
 public enum Method {
-	GET
-
+	GET, POST, PUT, PATCH, DELETE
 }

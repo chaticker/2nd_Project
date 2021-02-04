@@ -18,11 +18,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
-import nz.net.ultraq.thymeleaf.LayoutDialect;
-
-@Configuration
 @PropertySource("classpath:/application.properties")
 @EnableTransactionManagement
+@Configuration
 public class DBConfiguration {
 
 	@Autowired
@@ -59,12 +57,7 @@ public class DBConfiguration {
 	public org.apache.ibatis.session.Configuration mybatisConfg() {
 		return new org.apache.ibatis.session.Configuration();
 	}
-	
-	@Bean
-	public LayoutDialect layoutDialect() {
-	return new LayoutDialect();
-	}
-	
+
 	@Bean
 	public PlatformTransactionManager transactionManager() {
 		return new DataSourceTransactionManager(dataSource());

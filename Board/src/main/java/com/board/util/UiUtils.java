@@ -25,7 +25,7 @@ public class UiUtils {
 
 		return "utils/message-redirect";
 	}
-	
+
 	public Map<String, Object> getPagingParams(Criteria criteria) {
 
 		Map<String, Object> params = new LinkedHashMap<>();
